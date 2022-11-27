@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PenyewaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('index');
 });
+
+Route::get('/', function () {
+    return view('_include.awalan');
+});
+
+// PENGGUNA
+Route::resource('/penyewa', PenyewaController::class);
+
