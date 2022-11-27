@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\Penyewa;
+use App\Models\Admin;
 
-class PenyewaController extends Controller
+class AdminController extends Controller
 {
     // DASHBOARD
     public function index(){
-        return view('pages.penyewa',[
-             'judul' => 'Pengguna - Penyewa',
-             'item' => DB::table('penyewas')->paginate(10),
+        return view('pages.admin',[
+             'judul' => 'Pengguna - Administrator',
+             'item' => DB::table('admins')->paginate(10),
         ]);  
      }
  
      // Tampilan Create Admin
      public function create(){
-         return view('pages.penyewa_add',[
-            'judul' => 'Penyewa - Tambah Penyewa'
+         return view('pages.admin_add',[
+            'judul' => 'Administrator - Tambah Administrator'
          ]);
      }
  
@@ -33,16 +33,16 @@ class PenyewaController extends Controller
          ]);
          $validatedData['password']=bcrypt($request->password);
          $validatedData['status'] = 1;
-         Penyewa::create($validatedData); //untuk menyimpan data
+         Admin::create($validatedData); //untuk menyimpan data
          
-         return redirect("/penyewa"); // untuk diarahkan kemana
+         return redirect("/admin"); // untuk diarahkan kemana
      }
  
      // Tampilan Edit
      public function edit($id){
-         return view("pages.penyewa_edit",[
-             'judul' => 'Penyewa - Edit Penyewa',
-             'item' => Penyewa::find($id),
+         return view("pages.admin_edit",[
+             'judul' => 'Administrator - Edit Administrator',
+             'item' => Admin::find($id),
          ]);
      }
          
@@ -56,7 +56,7 @@ class PenyewaController extends Controller
          ]);
  
          // Menyimpan update
-         $user = Penyewa::find($id);
+         $user = Admin::find($id);
          $user->nama = $validatedData['nama'];
          $user->username = $validatedData['username'];
          $user->noHp = $validatedData['noHp'];
@@ -64,14 +64,14 @@ class PenyewaController extends Controller
          $user->save();
          
          // toast('Your data has been saved!','success');
-         return redirect("/penyewa"); // untuk diarahkan kemana
+         return redirect("/admin"); // untuk diarahkan kemana
      }
  
      // Hapus Data User
      public function destroy(Request $request, $id){
-         Penyewa::destroy($id);
+         Admin::destroy($id);
          // Session::flash('hapussuccess', 'Data berhasil dihapus!');
          // toast('Your data has been deleted!','success');
-         return redirect("/penyewa"); // untuk diarahkan kemana
+         return redirect("/admin"); // untuk diarahkan kemana
      }  
 }

@@ -24,7 +24,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header">PENGGUNA</li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Administrator'))? "active" : "" }}">
+            <a href="/admin" class="nav-link {{ (str_contains($judul, 'Administrator'))? "active" : "" }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Administrator
@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Pemilik'))? "active" : "" }}">
+            <a href="/pemilik" class="nav-link {{ (str_contains($judul, 'Pemilik'))? "active" : "" }}">
               <i class="nav-icon fas fa-crown"></i>
               <p>
                 Pemilik
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link {{ (str_contains($judul, 'Penyewa'))? "active" : "" }}">
+            <a href="/penyewa" class="nav-link {{ (str_contains($judul, 'Penyewa'))? "active" : "" }}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Penyewa

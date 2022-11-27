@@ -2,11 +2,11 @@
 @section('konten')
 <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Edit Penyewa</h3>
+      <h3 class="card-title">Edit Administrator</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form method="POST" action="/penyewa/{{ $item->id }}"> @method("put")
+    <form method="POST" action="/admin/{{ $item->id }}"> @method("put")
       @csrf
       <div class="card-body">
         <div class="form-group">

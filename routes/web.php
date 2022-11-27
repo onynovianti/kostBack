@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenyewaController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,5 @@ Route::get('/', function () {
 
 // PENGGUNA
 Route::resource('/penyewa', PenyewaController::class);
+Route::resource('/admin', AdminController::class);
 
