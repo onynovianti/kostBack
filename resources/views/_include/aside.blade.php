@@ -13,7 +13,7 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block">{{ session('namaLengkap') }}</a>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
           </li>
           <li class="nav-header">PROPERTI</li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Biaya Tambahan'))? "active" : "" }}">
+            <a href="/biaya_tambahan" class="nav-link {{ (str_contains($judul, 'Biaya Tambahan'))? "active" : "" }}">
               <i class="nav-icon fas fa-money-bill"></i>
               <p>
                 Biaya Tambahan
@@ -57,7 +57,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Fasilitas'))? "active" : "" }}">
+            <a href="/fasilitas" class="nav-link {{ (str_contains($judul, 'Fasilitas'))? "active" : "" }}">
               <i class="nav-icon fas fa-toolbox"></i>
               <p>
                 Fasilitas
@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Kamar'))? "active" : "" }}">
+            <a href="/kamar" class="nav-link {{ (str_contains($judul, 'Kamar'))? "active" : "" }}">
               <i class="nav-icon fas fa-bed"></i>
               <p>
                 Kamar
@@ -73,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Kost'))? "active" : "" }}">
+            <a href="/kost" class="nav-link {{ (str_contains($judul, 'Kost'))? "active" : "" }}">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Kost
@@ -81,7 +81,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link {{ (str_contains($judul, 'Peraturan'))? "active" : "" }}">
+            <a href="/peraturan" class="nav-link {{ (str_contains($judul, 'Peraturan'))? "active" : "" }}">
               <i class="nav-icon fas fa-info"></i>
               <p>
                 Peraturan
@@ -90,7 +90,7 @@
           </li>
           <li class="nav-header">AKUN</li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{ route('logout') }}" class="nav-link">
               <i class="fa fa-sign-out"></i>
               <p>
                 Logout

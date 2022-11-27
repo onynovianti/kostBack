@@ -7,6 +7,10 @@ use App\Models\Admin;
 
 class AdminController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('isLogin');
+    }
+
     // DASHBOARD
     public function index(){
         return view('pages.admin',[

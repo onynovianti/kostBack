@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenyewaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +16,12 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('index');
-});
-
-Route::get('/', function () {
-    return view('_include.awalan');
-});
-
 // PENGGUNA
 Route::resource('/penyewa', PenyewaController::class);
 Route::resource('/admin', AdminController::class);
+
+// ACCOUNT
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/', [AuthController::class, 'login']);
+Route::post('/auth',[AuthController::class,'store']);
 
