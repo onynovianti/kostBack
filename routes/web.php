@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenyewaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -19,6 +20,7 @@ use App\Http\Controllers\AuthController;
 // PENGGUNA
 Route::resource('/penyewa', PenyewaController::class);
 Route::resource('/admin', AdminController::class);
+Route::resource('/pemilik', PemilikController::class);
 
 // ACCOUNT
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
