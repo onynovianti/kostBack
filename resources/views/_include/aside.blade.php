@@ -88,6 +88,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">PEMBAYARAN</li>
+          <li class="nav-item">
+            <a href="/transaksi" class="nav-link {{ (str_contains($judul, 'Transaksi'))? "active" : "" }}">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p>
+                Transaksi
+              </p>
+            </a>
+          </li>
           <li class="nav-header">AKUN</li>
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link">

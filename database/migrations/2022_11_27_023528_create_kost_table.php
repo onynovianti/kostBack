@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('kecamatan');
-            $table->string('kab/kota');
+            $table->string('kota');
             $table->string('provinsi');
             $table->timestamps();
         });

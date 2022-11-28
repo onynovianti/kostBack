@@ -45,8 +45,14 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Select2 -->
+<script src="../../plugins/select2/js/select2.full.min.js"></script>
 <script>
   $(function () {
+    // $('.select2').select2()
+    // $('.select2bs4').select2({
+    //   theme: 'bootstrap4'
+    // })
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
@@ -60,5 +66,45 @@
       "autoWidth": false,
       "responsive": true,
     });
+  });
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    $("#provinsi").change(function(){
+       var province_id = $(this).val(); 
+       $.ajax({
+          type: "POST",
+          url: '/getKota/'+province_id,
+          dataType: 'json',
+          data: {'_token':'{{ csrf_token()}}'},
+          // data: {"province_id="+province_id,"_token":"{{ csrf_token()}}"},
+          success: function(data){
+              $('select#kota option').remove(); 
+            $.each(data, function(index) {
+              $("select#kota").removeAttr('disabled'); 
+              $("select#kota").append("<option value='"+data[index].id+"'>"+data[index].name+"</option>"); 
+            });                                            
+          }
+       });                    
+     });  
+
+     $("#kota").change(function(){
+       var regency_id = $(this).val();
+       $.ajax({
+          type: "POST",
+          url: '/getKec/'+regency_id,
+          dataType: 'json',
+          data: {'_token':'{{ csrf_token()}}'},
+          // data: {"province_id="+province_id,"_token":"{{ csrf_token()}}"},
+          success: function(data){
+              $('select#kecamatan option').remove(); 
+            $.each(data, function(index) {
+              $("select#kecamatan").removeAttr('disabled'); 
+              $("select#kecamatan").append("<option value='"+data[index].id+"'>"+data[index].name+"</option>"); 
+            });                                            
+          }
+       });                     
+     });  
   });
 </script>

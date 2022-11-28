@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Http;
 
 class Kost extends Model
 {
@@ -11,6 +12,9 @@ class Kost extends Model
 
     protected $fillable = [
         'nama',
-        'keterangan'
+        'alamat',
+        'kecamatan',
+        'kota',
+        'provinsi'
     ];
 }
